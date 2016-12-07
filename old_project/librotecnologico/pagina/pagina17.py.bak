@@ -1,0 +1,126 @@
+
+import wx
+from pagina import pagina
+import os
+import random
+import subprocess
+
+class presentazione(pagina):
+	def __init__ ( self , parent , grandParent , index ) :
+		pagina.__init__ ( self, parent , grandParent , index )
+		
+		self.p = 0
+		self.video = 0
+		self.img = 0
+		self.timeoutImmagine = 10*1000
+		self.nullaAttivo=True
+		self.videoAttivo=False
+		self.imgAttiva=False
+		self.firstTime = True
+		self.nMaxMedia = 398
+		self.mediaCorrente = 0
+		self.videoTot = 0
+		self.path="/home/arazzo/librotecnologico/immagini/17_presentazione/"
+		
+	def show ( self ) :
+		pass
+	
+	def routineVisibile (self, puntiToccati) :
+		#se non c'e'nulla sullo schermo
+		if self.firstTime:
+			subprocess.call("nvidia-smi", shell=True)
+			self.firstTime = False
+			self.avviaVideo(self.path+"arazzo corto.mpg")
+		elif(self.nullaAttivo):	
+			#subprocess.call("top -n1 -o %MEM", shell=True)	
+			if(self.mediaCorrente > self.nMaxMedia):
+				self.mediaCorrente = 0
+			print self.mediaCorrente
+			pathControllo = self.path+str(self.mediaCorrente)
+			#se sono immagini
+			if(os.path.exists(pathControllo+".png")):
+				pathControllo = pathControllo+".png"
+				self.showImmagine(pathControllo)
+			if(os.path.exists(pathControllo+".jpg")):
+				pathControllo = pathControllo+".jpg"
+				self.showImmagine(pathControllo)
+			#se sono video
+			if(os.path.exists(pathControllo+".mp4")):
+				pathControllo = pathControllo+".mp4"
+				self.avviaVideo(pathControllo)
+			if(os.path.exists(pathControllo+".m4v")):
+				pathControllo = pathControllo+".m4v"
+				self.avviaVideo(pathControllo)
+			if(os.path.exists(pathControllo+".mpg")):
+				pathControllo = pathControllo+".mpg"
+				self.avviaVideo(pathControllo)
+			if(os.path.exists(pathControllo+".mov")):
+				pathControllo = pathControllo+".mov"
+				self.avviaVideo(pathControllo)
+			self.mediaCorrente = self.mediaCorrente + 1
+	
+	def avviaVideo(self, path):
+		self.videoAttivo = True
+		self.nullaAttivo = False
+		self.p = wx.Panel(self)
+		self.video = self.loadVideo (path, 0, 0, 0, 1920, 1080, True, self.p)
+		self.video.Bind(wx.media.EVT_MEDIA_FINISHED, self.stopVideo)
+		self.Bind(wx.media.EVT_MEDIA_LOADED, self.loadedVideo)
+		
+	def loadedVideo(self, event):
+		print "Caricato"
+		self.p.Show();
+		self.video.Show()
+		if self.video.Play():
+			print "Avviato"
+		self.p.Layout()
+		self.videoTot += 1
+		print "VideoTot: " + str(self.videoTot)
+		print "State: " + str(self.video.GetState())
+		print "avvia video: " +  str(self.nullaAttivo)
+	
+	def showImmagine(self, path):
+		self.nullaAttivo = False
+		self.imgAttiva = True
+		self.img = self.loadImage (path, 0, 0, 0, True, True)
+		self.img.Show()
+		self.Layout()
+		self.timerImmagine = wx.Timer(self)
+		self.Bind(wx.EVT_TIMER,self.nascondiImmagine, self.timerImmagine)
+		self.timerImmagine.Start(self.timeoutImmagine , wx.TIMER_ONE_SHOT)
+		print "show immagine: " + str(self.nullaAttivo)
+		
+	
+	def stopVideo (self, event=None):
+		if self.video.Stop():
+			print "Stoppato"
+		self.video.Hide()
+		self.p.Hide()
+		self.p.Destroy()
+		self.videoAttivo = False
+		self.nullaAttivo = True
+		self.firstTime = False
+		print str(self.video.GetState())
+		print "stop video" + str(self.nullaAttivo)
+
+		
+	def nascondiImmagine (self, event=None):
+		self.img.Hide()
+		self.img.Destroy()
+		self.imgAttiva = False
+		print "nascondi immagine " + str(self.nullaAttivo)
+		self.nullaAttivo = True
+
+	def routineInvisibile (self) :
+		pass
+		
+	def hide (self):
+		self.firstTime = True
+		self.nullaAttivo = True
+		self.mediaCorrente = 0
+		if self.videoAttivo:
+			self.stopVideo()
+		elif self.imgAttiva:
+			self.nascondiImmagine()
+			self.timerImmagine.Stop()
+		

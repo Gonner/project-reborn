@@ -1,0 +1,199 @@
+#encoding: utf-8
+import wx
+import wx.media
+import warnings
+import random
+import os
+import sys
+
+class pagina (wx.Panel):
+	def __init__ ( self , parent , grandParent , index ) :
+		wx.Panel.__init__( self, parent )
+		self.SetInitialSize (  wx.Size(1920,1080))
+		self.index=index
+		
+		self.media={}
+		self.timer={}
+
+		self.ContentSize =  (1920,1080)
+		self.ScaleFactor = 1		
+		self.Offset = (0,0)
+		
+		self.prefissoImmagini=None
+		self.percorso=["/usr/share/librotecnologico/immagini/",os.getcwd()+"/immagini/"]
+		for p in self.percorso:
+			if (os.path.isdir(p)):
+				self.prefissoImmagini=p 
+		
+		if not self.prefissoImmagini:
+			sys.exit("Errore: non trovo la cartella con le immagini.\nInstalla il pacchetto librotecnologico o esegui main.py da un'altra locazione")
+		
+		self.SetBackgroundColour( (random.random()*255,random.random()*255,random.random()*255) )
+			
+	def evalueScaleFactor (self, width,height): 
+		self.ContentSize = (width,height)
+		ContentRatio = self.ContentSize[0]/self.ContentSize[1]
+		PageRatio = self.GetSize().width/self.GetSize().height
+		self.ScaleFactor = 1
+		
+		self.Offset = (0,0)
+		
+		if ContentRatio < PageRatio :
+			height = min (self.ContentSize[1],self.GetSize().height)
+			self.ScaleFactor = float(height)/float(self.ContentSize[1])
+			width = self.ScaleFactor * self.ContentSize[0]
+			self.Offset = ( 0.5*float(self.GetSize().width-width), 0.5*float(self.GetSize().height-height) )
+		else : 
+			width = min (self.ContentSize[0],self.GetSize().width)
+			self.ScaleFactor = float(width)/float(self.ContentSize[0])
+			height = self.ScaleFactor * self.ContentSize[1]
+			self.Offset = ( 0.5*float(self.GetSize().width-width), 0.5*float(self.GetSize().height-height) )
+		
+			
+	def loadImage (self, nome, id, posX=0, posY=0, evalue = False, percorsoAssoluto=False):
+		nomeDefinitivo=nome
+		if not percorsoAssoluto:
+			nomeDefinitivo=self.prefissoImmagini+nome
+		if not os.path.isfile(nomeDefinitivo):
+			sys.exit("pagina"+str(self.index)+".caricaImmagine: file "+nomeDefinitivo+" non trovato")
+		img = wx.Image(nomeDefinitivo, wx.BITMAP_TYPE_ANY)
+		if evalue :
+			self.evalueScaleFactor(img.GetWidth(),img.GetHeight())
+		img = img.Scale(img.GetWidth()*self.ScaleFactor , img.GetHeight()*self.ScaleFactor )
+		img = img.ConvertToBitmap()
+		return wx.StaticBitmap(self, bitmap=img, pos=(float(posX)*self.ScaleFactor+self.Offset[0],
+														float(posY)*self.ScaleFactor+self.Offset[1]) )
+		
+	def caricaImmagineDiSfondo (self, nome):
+		self.immagineDiSfondo = self.loadImage (nome, wx.ID_ANY, evalue=True)
+	
+	def caricaImmagine ( self , nome , id, posX=0, posY=0, invisibile=True ) :
+		self.media[id] = self.loadImage (nome , id, posX, posY )
+		if ( invisibile == True ):
+			self.media[id].Hide()
+			
+	def mostraImmagine (self, id, timeout=-1):
+		if (id in self.media):
+			self.media[id].Show()
+			self.Layout()
+			if (timeout>0):
+				self.timer[id] = wx.Timer(self)
+				self.Bind(wx.EVT_TIMER, lambda m: self.nascondiImmagine(id), self.timer[id])
+				self.timer[id].Start( timeout, wx.TIMER_ONE_SHOT)
+		else:
+			warnings.warn ("pagina"+str(self.index)+".mostraImmagine: non è stata caricata alcuna immagine con id "+str(id))
+			
+	def nascondiImmagine (self, id):
+		if (id in self.media):
+			self.media[id].Hide()
+		else:
+			warnings.warn ("pagina"+str(self.index)+".nascondiImmagine: non è stata caricata alcuna immagine con id "+str(id))
+	
+	def mostraTutte (self):
+		for i in self.media:
+			self.media[i].Show()
+
+	def nascondiTutte (self,tranne=[]):
+		for i in self.media:
+			if ( not i in tranne ):
+				if self.getTypeMedia(i)  != "StaticBitmap":
+					self.stopVideo(i)
+				self.media[i].Hide()
+	
+	def hide ( self ) :
+		return
+	def show ( self ) :
+		return	
+	def routineVisibile ( self, puntiToccati ):
+		return
+	def routineInvisibile ( self ):
+		return
+		
+	def loadVideo ( self , path, id, posX = 0 , posY = 0, width=320, height=240, percorsoAssoluto=False, parent = None):		
+		if not os.path.isfile(self.prefissoImmagini+path) and not percorsoAssoluto:
+			sys.exit("pagina"+str(self.index)+".caricaVideo: file "+path+" non trovato")
+		if not percorsoAssoluto:
+			path = self.prefissoImmagini+path
+			if parent !=  None:
+				return wx.media.MediaCtrl(parent, -1, fileName=path, pos=wx.Point(posX,posY), size=(width,height))
+		return wx.media.MediaCtrl(self, -1, fileName=path, pos=wx.Point(posX,posY), size=(width,height))
+
+	def caricaVideo (self, nome, id, posX = 0 , posY = 0, larghezza=320, altezza=240, invisibile=True ):
+		self.media[id] = self.loadVideo (nome , id, posX, posY, larghezza, altezza )
+		self.media[id].Bind(wx.media.EVT_MEDIA_STOP, lambda a: self.on_media_stop(id))
+		if ( invisibile == True ):
+			self.media[id].Hide()
+	
+	def mostraVideo (self, id):
+		if (id in self.media):
+			self.media[id].Show()
+			self.Layout()
+		else:
+			warnings.warn ("pagina"+str(self.index)+".mostraVideo: non è stato caricato alcun video con id "+str(id))
+			
+	def nascondiVideo (self, id):
+		if (id in self.media):
+			self.media[id].Hide()
+		else:
+			warnings.warn ("pagina"+str(self.index)+".nascondiVideo: non è stato caricato alcun video con id "+str(id))
+	
+	def playVideo (self, id):
+		if (id in self.media):
+			self.Layout()
+			self.media[id].Play()
+		else:
+			warnings.warn ("pagina"+str(self.index)+".playVideo: non è stato caricato alcun video con id "+str(id))
+
+	def pausaVideo (self, id):
+		if (id in self.media):
+			self.media[id].Pause()
+		else:
+			warnings.warn ("pagina"+str(self.index)+".pauseVideo: non è stato caricato alcun video con id "+str(id))
+
+	def stopVideo (self, id):
+		if (id in self.media):
+			self.media[id].Stop()
+		else:
+			warnings.warn ("pagina"+str(self.index)+".stopVideo: non è stato caricato alcun video con id "+str(id))			
+
+	def getTypeMedia(self,id):
+		#restituisce il nome della classe dell' oggetto dentro il map media
+		return self.media[id].__class__.__name__
+
+	def nascondiMedia (self, id):
+		if (id in self.media):
+			self.media[id].Hide()
+		else:
+			warnings.warn ("pagina"+str(self.index)+".nascondiMedia: non è stato caricato alcun media con id "+str(id))		
+
+	def on_media_stop(self, id):
+		self.nascondiVideo(id)
+
+class paginaSemplice (pagina):
+	def __init__ ( self , parent , grandParent , index ) :
+		pagina.__init__ ( self, parent , grandParent , index )
+		self.associazioni=[]
+		
+	def show ( self ) :
+		pass
+	
+	def routineVisibile (self, puntiToccati) :
+		for ass in self.associazioni:
+			#ass=(idMedia, linguetta, timeout)
+			#       ass[0]      ass[1]    ass[2]
+			if (puntiToccati[ ass[1] ]==1):
+				#Controlla se l' oggetto scelto è di tipo immagine
+				if self.getTypeMedia(ass[0]) == "StaticBitmap":
+					self.nascondiTutte ([ass[0]])
+					self.mostraImmagine (ass[0], ass[2])
+				else:
+					#se non è di tipo immagine allora mostra il video e lo fa partire
+					self.nascondiTutte ([ass[0]])
+					self.mostraVideo(ass[0])
+					self.playVideo(ass[0])
+				
+	def routineInvisibile (self) :
+		pass
+
+	def hide (self):
+		self.nascondiTutte()
