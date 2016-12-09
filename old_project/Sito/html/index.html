@@ -1,0 +1,234 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang = "it"> <!--<![endif]-->
+<head>
+	<meta name = "viewport" content = "width = 1050, user-scalable = no" />
+	<script type = "text/javascript" src = "extras/jquery.min.1.7.js"></script>
+	<script type = "text/javascript" src = "extras/modernizr.2.5.3.min.js"></script>
+	<script type = "text/javascript" src = "js/request.js"></script>
+	<script>
+		var riga = new Array(38).join('0').split('').map(parseFloat);
+	</script>
+	<title>Libro Digitale - Arazzo Tecnologico</title>
+</head>
+
+<body>
+	<div class = "flipbook-viewport">
+		<div class = "container">
+			<div class = "flipbook">
+				<div class = 'hard' style = "background-image:url(pages/0.png)"></div>
+				<div class = 'hard' style = "background-image:url(pages/1.png)">
+					<div><span class = 'btn-blue' id = 'button0' onclick = "onrequest('31')"></span></div>
+					<div><span class = 'btn-blue' id = 'button0b' onclick = "onrequest('18')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/2.png)">
+					<div><span class = 'btn-blue' id = 'button1' onclick = "onrequest('31')"></span></div>
+					<div><span class = 'btn-blue' id = 'button2' onclick = "onrequest('17')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/3.png)"></div>
+				<div style = "background-image:url(pages/4.png)">
+					<div><span class = 'btn-blue' id = 'button3' onclick = "onrequest('30')"></span></div>
+					<div><span class = 'btn-blue' id = 'button4' onclick = "onrequest('33')"></span></div>
+					<div><span class = 'btn-blue' id = 'button5' onclick = "onrequest('21')"></span></div>
+					<div><span class = 'btn-blue' id = 'button6' onclick = "onrequest('27')"></span></div>
+					<div><span class = 'btn-blue' id = 'button7' onclick = "onrequest('18')"></span></div>
+					<div><span class = 'btn-blue' id = 'button8' onclick = "onrequest('24')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/5.png)"></div>
+				<div style = "background-image:url(pages/6.png)">
+                    <div><span class = 'btn-blue' id = 'button9' onclick = "onrequest('32')"></span></div>
+					<div><span class = 'btn-blue' id = 'button10' onclick = "onrequest('27')"></span></div>
+					<div><span class = 'btn-blue' id = 'button11' onclick = "onrequest('29')"></span></div>
+					<div><span class = 'btn-blue' id = 'button12' onclick = "onrequest('24')"></span></div>
+					<div><span class = 'btn-blue' id = 'button13' onclick = "onrequest('18')"></span></div>
+					<div><span class = 'btn-blue' id = 'button14' onclick = "onrequest('25')"></span></div>
+					<div><span class = 'btn-blue' id = 'button15' onclick = "onrequest('22')"></span></div>
+					<div><span class = 'btn-blue' id = 'button16' onclick = "onrequest('21')"></span></div>
+					<div><span class = 'btn-blue' id = 'button17' onclick = "onrequest('19')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/7.png)"></div>
+				<div style = "background-image:url(pages/8.png)">
+					<div><span class = 'btn-blue' id = 'button18' onclick = "onrequest('33')"></span></div>
+					<div><span class = 'btn-blue' id = 'button19' onclick = "onrequest('30')"></span></div>
+					<div><span class = 'btn-blue' id = 'button20' onclick = "onrequest('22')"></span></div>
+					<div><span class = 'btn-blue' id = 'button21' onclick = "onrequest('19')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/9.png)"></div>
+				<div style = "background-image:url(pages/10.png)">
+					<div><span class = 'btn-blue' id = 'button22' onclick = "onrequest('28')"></span></div>
+					<div><span class = 'btn-blue' id = 'button23' onclick = "onrequest('25')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/11.png)"></div>
+				<div style = "background-image:url(pages/12.png)">
+					<div><span class = 'btn-blue' id = 'button24' onclick = "onrequest('29')"></span></div>
+					<div><span class = 'btn-blue' id = 'button25' onclick = "onrequest('25')"></span></div>
+					<div><span class = 'btn-blue' id = 'button26' onclick = "onrequest('20')"></span></div>
+					<div><span class = 'btn-blue' id = 'button27' onclick = "onrequest('32')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/13.png)"></div>
+				<div style = "background-image:url(pages/14.png)">
+					<div><span class = 'btn-blue' id = 'button28' onclick = "onrequest('33')"></span></div>
+					<div><span class = 'btn-blue' id = 'button29' onclick = "onrequest('29')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/15.png)">
+					<div><span class = 'btn-blue' id = 'button30' onclick = "onrequest('17')"></span></div>
+					<div><span class = 'btn-blue' id = 'button31' onclick = "onrequest('22')"></span></div>
+					<div><span class = 'btn-blue' id = 'button32' onclick = "onrequest('19')"></span></div>
+					<div><span class = 'btn-blue' id = 'button33' onclick = "onrequest('25')"></span></div>
+					<div><span class = 'btn-blue' id = 'button34' onclick = "onrequest('28')"></span></div>
+					<div><span class = 'btn-blue' id = 'button35' onclick = "onrequest('32')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/16.png)">
+					<div><span class = 'btn-blue' id = 'button36' onclick = "onrequest('23')"></span></div>
+					<div><span class = 'btn-blue' id = 'button37' onclick = "onrequest('26')"></span></div>
+					<div><span class = 'btn-blue' id = 'button38' onclick = "onrequest('18')"></span></div>
+					<div><span class = 'btn-blue' id = 'button39' onclick = "onrequest('20')"></span></div>
+					<div><span class = 'btn-blue' id = 'button40' onclick = "onrequest('29')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/17.png)"></div>
+				<div style = "background-image:url(pages/18.png)">
+					<div><span class = 'btn-blue' id = 'button41' onclick = "onrequest('20')"></span></div>
+					<div><span class = 'btn-blue' id = 'button42' onclick = "onrequest('19')"></span></div>
+					<div><span class = 'btn-blue' id = 'button43' onclick = "onrequest('24')"></span></div>
+					<div><span class = 'btn-blue' id = 'button44' onclick = "onrequest('23')"></span></div>
+					<div><span class = 'btn-blue' id = 'button45' onclick = "onrequest('17')"></span></div>
+					<div><span class = 'btn-blue' id = 'button46' onclick = "onrequest('21')"></span></div>
+					<div><span class = 'btn-blue' id = 'button47' onclick = "onrequest('22')"></span></div>
+					<div><span class = 'btn-blue' id = 'button48' onclick = "onrequest('18')"></span></div>
+					<div><span class = 'btn-blue' id = 'button49' onclick = "onrequest('30')"></span></div>
+					<div><span class = 'btn-blue' id = 'button50' onclick = "onrequest('27')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/19.png)"></div>
+				<div style = "background-image:url(pages/20.png)">
+					<div><span class = 'btn-blue' id = 'button51' onclick = "onrequest('17')"></span></div>
+					<div><span class = 'btn-blue' id = 'button52' onclick = "onrequest('22')"></span></div>
+					<div><span class = 'btn-blue' id = 'button53' onclick = "onrequest('20')"></span></div>
+					<div><span class = 'btn-blue' id = 'button54' onclick = "onrequest('19')"></span></div>
+					<div><span class = 'btn-blue' id = 'button55' onclick = "onrequest('23')"></span></div>
+					<div><span class = 'btn-blue' id = 'button56' onclick = "onrequest('25')"></span></div>
+					<div><span class = 'btn-blue' id = 'button57' onclick = "onrequest('18')"></span></div>
+					<div><span class = 'btn-blue' id = 'button58' onclick = "onrequest('27')"></span></div>
+					<div><span class = 'btn-blue' id = 'button59' onclick = "onrequest('34')"></span></div>
+					<div><span class = 'btn-blue' id = 'button60' onclick = "onrequest('29')"></span></div>
+					<div><span class = 'btn-blue' id = 'button61' onclick = "onrequest('32')"></span></div>
+					<div><span class = 'btn-blue' id = 'button62' onclick = "onrequest('30')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/21.png)">
+					<div><span class = 'btn-blue' id = 'button63' onclick = "onrequest('25')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button64' onclick = "onrequest('28')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button65' onclick = "onrequest('29')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button66' onclick = "onrequest('30')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button67' onclick = "onrequest('17')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button68' onclick = "onrequest('31')" style = "width:18px; height:18px"></span></div>
+				</div>
+				<div style = "background-image:url(pages/22.png)">
+					<div><span class = 'btn-blue' id = 'button69' onclick = "onrequest('20')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button70' onclick = "onrequest('19')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button71' onclick = "onrequest('23')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button72' onclick = "onrequest('22')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button73' onclick = "onrequest('21')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button74' onclick = "onrequest('24')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button75' onclick = "onrequest('26')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button76' onclick = "onrequest('27')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button76b' onclick = "onrequest('18')" style = "width:18px; height:18px"></span></div>
+				</div>
+				<div style = "background-image:url(pages/23.png)"></div>
+				<div style = "background-image:url(pages/24.png)">
+					<div><span class = 'btn-blue' id = 'button77' onclick = "onrequest('22')"></span></div>
+					<div><span class = 'btn-blue' id = 'button78' onclick = "onrequest('20')"></span></div>
+					<div><span class = 'btn-blue' id = 'button79' onclick = "onrequest('25')"></span></div>
+					<div><span class = 'btn-blue' id = 'button80' onclick = "onrequest('28')"></span></div>
+					<div><span class = 'btn-blue' id = 'button81' onclick = "onrequest('31')"></span></div>
+					<div><span class = 'btn-blue' id = 'button82' onclick = "onrequest('34')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/25.png)"></div>
+				<div style = "background-image:url(pages/26.png)"></div>
+				<div style = "background-image:url(pages/27.png)">
+					<div><span class = 'btn-blue' id = 'button83' onclick = "onrequest('27')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/28.png)">
+					<div><span class = 'btn-blue' id = 'button84' onclick = "onrequest('21')"></span></div>
+				</div>
+				<div style = "background-image:url(pages/29.png)"></div>
+				<div style = "background-image:url(pages/30.png)">
+					<div><span class = 'btn-blue' id = 'button85' onclick = "onrequest('27')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button86' onclick = "onrequest('26')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button87' onclick = "onrequest('25')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button88' onclick = "onrequest('24')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button89' onclick = "onrequest('23')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button90' onclick = "onrequest('22')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button91' onclick = "onrequest('21')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button92' onclick = "onrequest('20')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button93' onclick = "onrequest('19')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button94' onclick = "onrequest('18')" style = "width:18px; height:18px"></span></div>
+					<div><span class = 'btn-blue' id = 'button95' onclick = "onrequest('17')" style = "width:18px; height:18px"></span></div>
+				</div>
+				<div style = "background-image:url(pages/31.png)"></div>
+				<div class = 'hard' style = "background-image:url(pages/32.png)"></div>
+				<div class = 'hard' style = "background-image:url(pages/33.png)"></div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		function loadApp() {
+
+			// Creazione del libro
+			$('.flipbook').turn({
+
+					// Lunghezza
+					width: 922,
+					
+					// Altezza
+					height: 600,
+
+					// Elevazione
+					elevation: 0,
+					
+					// Inclinazione
+					inclination: 0,
+					
+					// Gradiente (Ombre)
+					gradients: true,
+					
+					// Auto center this flipbook
+					autoCenter: true,
+					
+					// Accelerazione Hardware
+					acceleration: true
+					
+			});
+		}
+		
+		$(".flipbook").bind("turned", function(event, page, view) {
+			console.log("Page: " + page);
+			riga = new Array(38).join('0').split('').map(parseFloat);
+			var p = page;
+			p--;
+			if(p == 0)
+				onrequest(-1);
+			else if(p % 2 == 0) 
+				onrequest((p / 2) - 1);
+			else
+				onrequest(((p + 1) / 2) - 1);
+			
+		});
+
+		// Carica la versione in HTML4 se non esiste il transform CSS
+
+		yepnope({
+			test : Modernizr.csstransforms,
+			yep: ['lib/turn.js'],
+			nope: ['lib/turn.html4.min.js'],
+			both: ['css/style.css'],
+			complete: loadApp
+		});
+
+	</script>
+	
+</body>
+</html>

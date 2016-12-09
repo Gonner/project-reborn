@@ -1,0 +1,694 @@
+
+body{
+	overflow: hidden;
+	background-color: #3498db;
+	background-image: url(../img/cover1.png);
+	margin: 0;
+	padding: 0;
+}
+
+$blue: #108FE8;
+
+span {
+  	margin: 0 10px;
+}
+
+.btn-blue {
+  background: #f1c40f;
+  border: 2px solid #CC9900;
+  border-radius: 100%;
+  box-shadow: 0 -2px 0 3px darken(#CC9900, 10%) inset, 0 5px 5px rgba(darken(#CC9900, 40%), 0.17), 0 15px rgba(#fff, 0.25) inset;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  
+  &:hover {
+    background: #333;
+    box-shadow: 0 -2px 0 3px darken(#333, 10%) inset, 0 5px 5px rgba(darken(#333, 40%), 0.17), 0 15px rgba(#fff, 0.32) inset;
+   }
+}
+
+
+#button0 {
+	margin-top: 90px;
+	margin-left: 350px;
+	position: absolute;
+}
+
+#button0b{
+	margin-top: 435px;
+	margin-left: 94px;
+	position: absolute;
+}
+
+#button1 {
+	margin-top: 84px;
+  	margin-left: 150px;
+  	position: absolute;
+}
+
+#button2 {
+	margin-top: 382px;
+  	margin-left: 120px;
+  	position: absolute;
+}
+
+/* Chimica */
+#button3 {
+	margin-top: 170px;
+  	margin-left: 70px;
+  	position: absolute;
+}
+
+#button4 {
+	margin-top: 155px;
+  	margin-left: 267px;
+	position: absolute;
+}
+
+#button5 {
+	margin-top: 370px;
+  	margin-left: 55px;
+	position: absolute;
+}
+
+#button6 {
+	margin-top: 333px;
+  	margin-left: 265px;
+	position: absolute;
+}
+
+#button7 {
+	margin-top: 558px;
+  	margin-left: 80px;
+	position: absolute;
+}
+
+#button8 {
+	margin-top: 515px;
+  	margin-left: 270px;
+	position: absolute;
+}
+
+/* Elettronica */
+#button9 {
+	margin-top: 143px;
+  	margin-left: 100px;
+	position: absolute;
+}
+
+#button10 {
+	margin-top: 183px;
+  	margin-left: 55px;
+	position: absolute;
+}
+
+#button11 {
+	margin-top: 185px;
+  	margin-left: 135px;
+	position: absolute;
+}
+
+#button12 {
+	margin-top: 243px;
+  	margin-left: 94px;
+	position: absolute;
+}
+
+#button13 {
+	margin-top: 293px;
+  	margin-left: 53px;
+	position: absolute;
+}
+
+/* Scheda */
+#button14 {
+	margin-top: 212px;
+  	margin-left: 282px;
+	position: absolute;
+}
+
+#button15 {
+	margin-top: 245px;
+  	margin-left: 365px;
+	position: absolute;
+}
+
+#button16 {
+	margin-top: 287px;
+  	margin-left: 335px;
+	position: absolute;
+}
+
+#button17 {
+	margin-top: 310px;
+  	margin-left: 229px;
+	position: absolute;
+}
+
+/* Filo */
+#button18 {
+	margin-top: 176px;
+  	margin-left: 239px;
+	position: absolute;
+}
+
+#button19 {
+	margin-top: 260px;
+  	margin-left: 372px;
+	position: absolute;
+}
+
+#button20 {
+	margin-top: 310px;
+  	margin-left: 267px;
+	position: absolute;
+}
+
+#button21 {
+	margin-top: 428px;
+  	margin-left: 332px;
+	position: absolute;
+}
+
+/* Meccanica */
+#button22 {
+	margin-top: 132px;
+  	margin-left: 190px;
+	position: absolute;
+}
+
+#button23 {
+	margin-top: 450px;
+  	margin-left: 275px;
+	position: absolute;
+}
+
+/* Informatica */
+#button24 {
+	margin-top: 137px;
+  	margin-left: 75px;
+	position: absolute;
+}
+
+#button25 {
+	margin-top: 195px;
+  	margin-left: 77px;
+	position: absolute;
+}
+
+#button26 {
+	margin-top: 259px;
+  	margin-left: 81px;
+	position: absolute;
+}
+
+#button27 {
+	margin-top: 79px;
+  	margin-left: 70px;
+	position: absolute;
+}
+
+/* Lampada */
+#button28 {
+	margin-top: 440px;
+  	margin-left: 330px;
+	position: absolute;
+}	
+
+#button29 {
+	margin-top: 518px;
+  	margin-left: 320px;
+	position: absolute;
+}
+
+/* Quadri */
+#button30 {
+	margin-top: 419px;
+  	margin-left: 345px;
+	position: absolute;
+}
+
+#button31 {
+	margin-top: 345px;
+  	margin-left: 365px;
+	position: absolute;
+}
+
+#button32 {
+	margin-top: 370px;
+  	margin-left: 187px;
+	position: absolute;
+}
+
+#button33 {
+	margin-top: 325px;
+  	margin-left: 49px;
+	position: absolute;
+}
+
+#button34 {
+	margin-top: 286px;
+  	margin-left: 290px;
+	position: absolute;
+}
+
+#button35 {
+	margin-top: 232px;
+  	margin-left: 143px;
+	position: absolute;
+}
+
+/* Quadro 2 */
+#button36 {
+	margin-top: 280px;
+  	margin-left: 45px;
+	position: absolute;
+}
+
+#button37 {
+	margin-top: 293px;
+  	margin-left: 173px;
+	position: absolute;
+}
+
+#button38 {
+	margin-top: 394px;
+  	margin-left: 70px;
+	position: absolute;
+}
+
+#button39 {
+	margin-top: 396px;
+  	margin-left: 205px;
+	position: absolute;
+}
+
+#button40 {
+	margin-top: 249px;
+  	margin-left: 255px;
+	position: absolute;
+}
+
+/* Meteo */
+#button41 {
+	margin-left: 330px;
+	margin-top: 390px;
+	position: absolute;
+}
+
+#button42 {
+	margin-left: 240px;
+	margin-top: 405px;
+	position: absolute;
+}
+
+#button43 {
+	margin-left: 340px;
+	margin-top: 220px;
+	position: absolute;	
+}
+
+#button44 {
+	margin-left: 240px;
+	margin-top: 240px;
+	position: absolute;
+}
+
+#button45 {
+	margin-left: 190px;
+	margin-top: 430px;
+	position: absolute;
+}
+
+#button46 {
+	margin-left: 220px;
+	margin-top: 325px;
+	position: absolute;
+}
+
+#button47 {
+	margin-left: 120px;
+	margin-top: 250px;
+	position: absolute;
+}
+
+#button48 {
+	margin-left: 50px;
+	margin-top: 320px;
+	position: absolute;
+}
+
+#button49 {
+	margin-left: 198px;
+	margin-top: 90px;
+	position: absolute;
+}
+
+#button50 {
+	margin-left: 70px;
+	margin-top: 150px;
+	position: absolute;
+}
+
+/* Italia */
+#button51 {
+	margin-left: 255px;
+	margin-top: 445px;
+	position: absolute;
+}
+
+#button52 {
+	margin-left: 370px;
+	margin-top: 320px;
+	position: absolute;
+}
+
+#button53 {
+	margin-left: 290px;
+	margin-top: 335px;
+	position: absolute;
+}
+
+#button54 {
+	margin-left: 370px;
+	margin-top: 410px;
+	position: absolute;
+}
+
+#button55 {
+	margin-left: 230px;
+	margin-top: 290px;
+	position: absolute;
+}
+
+#button56 {
+	margin-left: 256px;
+	margin-top: 230px;
+	position: absolute;
+}
+
+#button57 {
+	margin-left: 100px;
+	margin-top: 390px;
+	position: absolute;
+}
+
+#button58 {
+	margin-left: 180px;
+	margin-top: 230px;
+	position: absolute;
+}
+
+#button59 {
+	margin-left: 210px;
+	margin-top: 160px;
+	position: absolute;
+}
+
+#button60 {
+	margin-left: 190px;
+	margin-top: 193px;
+	position: absolute;
+}
+
+#button61 {
+	margin-left: 130px;
+	margin-top: 156px;
+	position: absolute;
+}
+
+#button62 {
+	margin-left: 80px;
+	margin-top: 165px;
+	position: absolute;
+}
+
+/* Mondo 1 */
+#button63 {
+	margin-left: 280px;
+	margin-top: 374px;
+	position: absolute;
+}
+
+#button64 {
+	margin-left: 287px;
+	margin-top: 335px;
+	position: absolute;
+}
+
+#button65 {
+	margin-left: 220px;
+	margin-top: 260px;
+	position: absolute;
+}
+
+#button66 {
+	margin-left: 230px;
+	margin-top: 227px;
+	position: absolute;
+}
+
+#button67 {
+	margin-left: 230px;
+	margin-top: 180px;
+	position: absolute;
+}
+
+#button68 {
+	margin-left: 235px;
+	margin-top: 203px;
+	position: absolute;
+}
+
+/* Mondo 2 */
+#button69 {
+	margin-left: 300px;
+	margin-top: 305px;
+	position: absolute;
+}
+
+#button70 {
+	margin-left: 190px;
+	margin-top: 355px;
+	position: absolute;
+}
+
+#button71 {
+	margin-left: 325px;
+	margin-top: 240px;
+	position: absolute;
+}
+
+#button72 {
+	margin-left: 155px;
+	margin-top: 240px;
+	position: absolute;
+}
+
+#button73 {
+	margin-left: 247px;
+	margin-top: 259px;
+	position: absolute;
+}
+
+#button74 {
+	margin-left: 100px;
+	margin-top: 200px;
+	position: absolute;
+}
+
+#button75 {
+	margin-left: 95px;
+	margin-top: 170px;
+	position: absolute;
+}
+
+#button76 {
+	margin-left: 168px;
+	margin-top: 150px;
+	position: absolute;
+}
+
+#button76b {
+	margin-left: 380px;
+	margin-top: 383px;
+	position: absolute;
+}
+
+/* Carte */
+#button77 {
+	margin-left: 250px;
+	margin-top: 445px;
+	position: absolute;
+}
+
+#button78 {
+	margin-left: 70px;
+	margin-top: 445px;
+	position: absolute;
+}
+
+#button79 {
+	margin-left: 220px;
+	margin-top: 280px;
+	position: absolute;
+}
+
+#button80 {
+	margin-left: 160px;
+	margin-top: 200px;
+	position: absolute;
+}
+
+#button81 {
+	margin-left: 120px;
+	margin-top: 115px;
+	position: absolute;
+}
+
+#button82 {
+	margin-left: 60px;
+	margin-top: 25px;
+	position: absolute;
+}
+
+/* Castello */
+#button83 {
+	margin-left: 395px;
+	margin-top: 140px;
+	position: absolute;
+}
+
+#button84 {
+	margin-left: 55px;
+	margin-top: 235px;
+	position: absolute;
+}
+
+/* Pianoforte */
+#button85 {
+	margin-left: 360px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button86 {
+	margin-left: 333px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button87 {
+	margin-left: 306px;
+	margin-top: 396px;
+	position: absolute;
+}	
+
+#button88 {
+	margin-left: 280px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button89 {
+	margin-left: 253px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button90 {
+	margin-left: 226px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button91 {
+	margin-left: 200px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button92 {
+	margin-left: 174px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button93 {
+	margin-left: 148px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button94 {
+	margin-left: 122px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+#button95 {
+	margin-left: 96px;
+	margin-top: 396px;
+	position: absolute;
+}
+
+.flipbook-viewport {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.flipbook-viewport .container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: auto;
+}
+
+.flipbook-viewport .flipbook {
+	width: 922px;
+	height: 600px;
+	left: -461px;
+	top: -300px;
+}
+
+.flipbook-viewport .page {
+	width: 461px;
+	height: 600px;
+	background-color: white;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.flipbook .page {
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	-ms-box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	-o-box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.flipbook-viewport .page img {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin: 0;
+}
+
+.flipbook-viewport .shadow {
+	-webkit-transition: -webkit-box-shadow 0.5s;
+	-moz-transition: -moz-box-shadow 0.5s;
+	-o-transition: -webkit-box-shadow 0.5s;
+	-ms-transition: -ms-box-shadow 0.5s;
+
+	-webkit-box-shadow: 0 0 20px #ccc;
+	-moz-box-shadow: 0 0 20px #ccc;
+	-o-box-shadow: 0 0 20px #ccc;
+	-ms-box-shadow: 0 0 20px #ccc;
+	box-shadow: 0 0 20px #ccc;
+}
