@@ -1,5 +1,6 @@
 package Global;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -29,6 +30,8 @@ public class GlobalVar {
 	public static Image img_btn_ospiti_pressed;
 	public static Image img_btn_interni;
 	public static Image img_btn_interni_pressed;
+	public static Image img_btn_mod;  // bottone per scelta moduli
+	public static Image img_btn_mod_pressed;
 	public static Image img_background;
 	public static Image img_left_arrow;   // bottone back toolbar
 	public static Image img_right_arrow;  // bottone forward toolbar
@@ -37,6 +40,8 @@ public class GlobalVar {
 	public static Image img_close_menu;  // X
 	public static Image img_open_menu;  // tre linee
 	public static Image img_navigation_menu;
+	public static Image img_ricevimento_panel;
+	public static Image img_ricercaprof_panel;
 	
 	public static String path_btn_ospiti = "/images/btn_ospiti.png";
 	public static String path_btn_ospiti_pressed = "/images/btn_ospiti_pressed.png";
@@ -50,6 +55,10 @@ public class GlobalVar {
 	public static String path_close_menu = "/images/close_cross.png";
 	public static String path_open_menu = "/images/menu_icon.png";
 	public static String path_navigation_menu = "/images/navigation_menu.png";
+	public static String path_ricevimento_panel = "/images/ricevimento_panel.png";
+	public static String path_ricercaporf_panel = "/images/ricercaprof_panel.png";
+	public static String path_btn_mod = "/images/btn_mod.png";
+	public static String path_btn_mod_presssed =  "/images/btn_mod_pressed.png";
 	
 	public static int StackPosition=0;
 	public static Vector<JPanel> Stack = new Vector<JPanel>(1,1);
@@ -79,6 +88,10 @@ public class GlobalVar {
 			img_close_menu = ImageIO.read(getClass().getResource(path_close_menu));
 			img_open_menu = ImageIO.read(getClass().getResource(path_open_menu));
 			img_navigation_menu = ImageIO.read(getClass().getResource(path_navigation_menu));
+			img_ricevimento_panel = ImageIO.read(getClass().getResource(path_ricevimento_panel));
+			img_ricercaprof_panel = ImageIO.read(getClass().getResource(path_ricercaporf_panel));
+			img_btn_mod = ImageIO.read(getClass().getResource(path_btn_mod));
+			img_btn_mod_pressed = ImageIO.read(getClass().getResource(path_btn_mod_presssed));
 			
 			Stack.add(0,new OspitiInterniPanel());
 			
@@ -88,6 +101,17 @@ public class GlobalVar {
 			e.printStackTrace();
 		}
 	
+	}
+	
+	public static int StackContains(JPanel tmp)
+	{
+		for(int i=0 ;i<Stack.size();i++){
+			
+			if(Stack.get(i) == tmp )
+				return i;
+			
+		}
+		return -1;
 	}
 	
 

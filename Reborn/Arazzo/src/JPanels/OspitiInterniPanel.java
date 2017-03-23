@@ -51,7 +51,7 @@ public class OspitiInterniPanel extends JPanel {
 						
 						ospitiBtn.setIcon(new ImageIcon(GlobalVar.img_btn_ospiti));
 						
-						JPanel tmp = new TmpPanel();
+						JPanel tmp = new SceltaModuloPanel();
 						
 						GlobalVar.frame.getContentPane().remove(2); // + 2 perche 0  e 1 sono riservati alla toolbar e al menu
 						GlobalVar.frame.getContentPane().add(tmp,2);  // imposto nell'indice 2 (dove setto tutte le schermate) il Jpanel che voglio
@@ -104,7 +104,7 @@ public class OspitiInterniPanel extends JPanel {
 						
 						interniBtn.setIcon(new ImageIcon(GlobalVar.img_btn_interni));
 						
-						JPanel tmp = new TmpPanel();
+						JPanel tmp = new SceltaModuloPanel();
 						
 						GlobalVar.frame.getContentPane().remove(2);  // + 2 perche 0  e 1 sono riservati alla toolbar e al menu
 						GlobalVar.frame.getContentPane().add(tmp,2);

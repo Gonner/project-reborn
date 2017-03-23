@@ -64,6 +64,7 @@ public class ToolBar extends JPanel {
 				left.setIcon(new ImageIcon(GlobalVar.img_left_arrow));
 				if(GlobalVar.StackPosition  > 0)  // se voglio tornare indietro e non vado in underflow
 				{
+					GlobalVar.Stack.set(GlobalVar.StackPosition, null);
 					GlobalVar.StackPosition--; // decremento la posizione attuale in cui mi trovo
 					
 					GlobalVar.frame.getContentPane().remove(2); // rimuovo il Jpanel che sta nell'indice 2 del frame

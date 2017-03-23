@@ -1,0 +1,1 @@
+/usr/lib/jvm/java-8-openjdk-amd64/bin/java -Dfile.encoding=UTF-8 -classpath /home/arazzo/workspace/Arazzo/bin MainFrame

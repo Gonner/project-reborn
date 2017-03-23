@@ -1,6 +1,16 @@
+import java.awt.AWTEvent;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Toolkit;
+import java.awt.event.AWTEventListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -19,7 +29,9 @@ import JPanels.ToolBar;
 public class MainFrame {
 
 	private static JFrame frame;
-
+	
+	
+	
 	/**
 	 * Launch the application.
 	 * 
@@ -28,6 +40,7 @@ public class MainFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					MainFrame window = new MainFrame();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -78,6 +91,7 @@ public class MainFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);  //absolute layout
 	
+		
 		//setto la toolbar
 		JPanel panel = new ToolBar();
 		panel.setVisible(false);
@@ -104,6 +118,7 @@ public class MainFrame {
 	
 		//device.setFullScreenWindow(frame);
 	}
+	
 	
 	
 	
