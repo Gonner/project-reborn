@@ -5,6 +5,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Global.GlobalVar;
+import ricevimentoProfessore.*;
+
 import java.awt.SystemColor;
 import javax.swing.JLabel;
 
@@ -26,4 +28,5 @@ public class TmpPanel extends JPanel {
 			
 		
 	}
+	
 }
